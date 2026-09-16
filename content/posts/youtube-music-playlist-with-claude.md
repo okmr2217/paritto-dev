@@ -5,8 +5,6 @@ description: "Google TakeoutのYouTube Music視聴履歴をClaudeに読み込ま
 category: "C"
 ---
 
-# Claude で YouTube Music 視聴履歴からプレイリストを自動作成する方法
-
 ## はじまりのセクション
 
 Google Takeout で取得した YouTube Music の視聴履歴を Claude に読み込ませると、以下のようなものを作成できる。
