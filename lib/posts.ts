@@ -9,6 +9,7 @@ import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import remarkToc from "remark-toc";
 import rehypeSlug from "rehype-slug";
+import { dateValue } from "@/lib/utils";
 
 export type { PostCategory } from "@/lib/post-constants";
 export { CATEGORY_LABELS } from "@/lib/post-constants";
@@ -57,7 +58,7 @@ export function getAllPosts(): PostMeta[] {
     })
     .filter((post) => !post.draft);
 
-  return posts.sort((a, b) => (a.date > b.date ? -1 : 1));
+  return posts.sort((a, b) => dateValue(b.date) - dateValue(a.date));
 }
 
 export const getPostBySlug = cache(async function getPostBySlug(

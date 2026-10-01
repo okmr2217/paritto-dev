@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import rehypeSlug from "rehype-slug";
+import { dateValue } from "@/lib/utils";
 
 const worksDirectory = path.join(process.cwd(), "content/works");
 
@@ -61,7 +62,7 @@ export function getAllWorks(): WorkMeta[] {
       };
     });
 
-  return works.sort((a, b) => (a.date > b.date ? -1 : 1));
+  return works.sort((a, b) => dateValue(b.date) - dateValue(a.date));
 }
 
 export async function getWorkBySlug(slug: string): Promise<Work | null> {
